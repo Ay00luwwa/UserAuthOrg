@@ -1,0 +1,53 @@
+### Register a new user
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+    "user_id": "user123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "password": "password123",
+    "phone": "1234567890"
+}
+
+### Login user
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+
+{
+    "email": "john.doe@example.com",
+    "password": "password123"
+}
+
+### Get user details
+GET http://localhost:8000/api/users/1
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+### List organisations
+GET http://localhost:8000/api/organisations
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+### Create an organisation
+POST http://localhost:8000/api/organisations
+Content-Type: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+{
+    "org_id": "org123",
+    "name": "My New Organisation",
+    "description": "A description for my new organisation."
+}
+
+### Get organisation details
+GET http://localhost:8000/api/organisations/org123
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+### Add user to organisation
+POST http://localhost:8000/api/organisations/org123/users
+Content-Type: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+{
+    "userId": "user123"
+}
